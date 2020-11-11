@@ -31,3 +31,38 @@ class Solution {
         return ans;
     }
 }
+
+//_____________________
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> ans = new ArrayList<>(4);
+        //int total=nums.length*(nums.length+1)/2;
+        //int sum=total;
+       //int count=0;
+        for (int i=1;i<=nums.length;i++) {
+            int j=i;
+            if (!IntStream.of(nums).anyMatch(x -> x == j)) {
+                ans.add(i);
+            }
+        }
+        /*for (int i=0;i<nums.length;i++) {
+            //ans.add(nums[i-1],new Integer(nums[i-1]));
+            //ans.add(i);
+            if (!ans.contains(nums[i])) {
+                ans.add(nums[i]);
+                //ans.add(nums[i-1],nums[i-1]);
+                sum-=nums[i];
+            } else {
+                count+=nums[i];
+            }
+        }*/
+        //System.out.println("total="+total+"; sum="+sum+"; count="+count);
+        //ans.removeIf(n -> (IntStream.of(nums).anyMatch(x -> x == n)));
+        /*System.out.println(ans.size());
+        for (int n:nums) {
+            ans.set(n-1,n);
+            //ans.remove(new Integer(n));
+        }*/
+        return ans;
+    }
+}
