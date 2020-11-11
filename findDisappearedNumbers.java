@@ -66,3 +66,14 @@ class Solution {
         return ans;
     }
 }
+*************************************************************************************
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        //List<Integer> ans = IntStream.rangeClosed(1, nums.length).boxed().collect(Collectors.toList());
+        List<Integer> ans = Stream.iterate(1, n -> n + 1).limit(nums.length).collect(Collectors.toList());
+        for (int i=0;i<nums.length;i++) {
+            ans.remove(new Integer(nums[i]));
+        }
+        return ans;
+    }
+}
